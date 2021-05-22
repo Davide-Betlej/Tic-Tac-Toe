@@ -1,20 +1,3 @@
-// Będziemy przetrzymywac tablicę gameboard w obiekcie Gameboard. 
-// Gracze również będą obiektami
-// Utworzyć kontroler (sprawdzający warunek zwycięstwa po każdym ruchu)
-// Przetrzymywać jak najmniej globalnego kodu jak to możliwe...
-// ... ukrywać je w factory function albo w modules.
-// Jezeli potrzebujesz czegoś 'jedynie raz' (gameboard, controller)...
-// uzyj Modules, jezeli więcej (np. graczy) twórz ich za pomocą ...
-// factory functions. 
-
-// Utworzyć JS który będzie renderował zawartość tablicy na stronie.
-
-// Utworzyć funkcję która pozwala graczowi postawić odpowiedni symbol..
-// na boardzie i połączyć ją z DOM. (Pamiętaj o logice)
-
-// Utworzyć logikę która sprawdza wygraną lub remis.
-
-
 // player creation factory function
 const createPlayer = (name, sign) => {
     return {name, sign}
