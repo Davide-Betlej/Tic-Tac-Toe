@@ -1,8 +1,8 @@
-Live version: <a href="https://davide-betlej.github.io/Tic-Tac-Toe/">Click</a>
+<h1>Live version: <a href="https://davide-betlej.github.io/Tic-Tac-Toe/">Click</a></h1>
 
-I had some fun while working on this project and learned a lot.
+<h2>I had some fun while working on this project and learned a lot.</h2>
 
-Things I learned: 
+<b>Things I learned: </b>
 <ul>
     <li>Using factory functions</li>
     <li>Using modules</li>
