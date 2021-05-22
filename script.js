@@ -47,16 +47,17 @@ const gameBoard = (() => {
             newSquare.setAttribute('data', gameController.activePlayer.sign)
             // updates the array
             gameboardArr[index] = gameController.activePlayer.sign;
-            // removing the event listener
+            // removes the event listener
             newSquare.removeEventListener('click', flip)
             // update the remaining moves
             gameController.remainingMoves -= 1;
             // check for the winner
-            // gameController.checkWin();
+            gameController.checkWin();
             // checking the remaining moves
             if (gameController.winner == false) {
                 if (gameController.remainingMoves > 0) {
                     gameController.nextPlayer();
+                    gameController.paraNextAlert();
                 } else if (gameController.remainingMoves == 0) {
                     gameController.declareTie();
                 }
@@ -72,8 +73,8 @@ const gameBoard = (() => {
 const gameController = (() => {
 
     // creating players
-    const playerOne = createPlayer('Player1', 'X')
-    const playerTwo = createPlayer('Player2', 'O')
+    const playerOne = createPlayer('Player 1', 'X')
+    const playerTwo = createPlayer('Player 2', 'O')
 
     // default values
     let activePlayer = playerOne;
@@ -81,16 +82,44 @@ const gameController = (() => {
     let remainingMoves = 9;
 
     // selector
-    let tieBox = document.querySelector('.text-container');
+    const tieBox = document.querySelector('.text-container');
+    const playerPara = document.querySelector('.playerName')
 
     //next player
     function nextPlayer() {
         this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
-        console.log('Active player: ' + activePlayer.name);
+        console.log('Active player: ' + this.activePlayer.name);
+    }
+
+    function paraNextAlert() {
+        this.activePlayer === playerOne ? playerPara.textContent = 'Player 1' : playerPara.textContent = 'Player 2';
+    }
+
+    const winningAxes = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6],
+    ];
+
+
+    function checkWin() {
+        winningAxes.forEach((item, index) => { 
+            if (gameBoard.gameboardArr[item[0]] === this.activePlayer.sign && gameBoard.gameboardArr[item[1]] === this.activePlayer.sign && gameBoard.gameboardArr[item[2]] === this.activePlayer.sign) {
+                console.log('Game Over!');
+                tieBox.innerHTML = `<b>${this.activePlayer.name} wins!</b>`;
+                this.winner = true;
+                activePlayer.sign = ''
+            } 
+        })
     }
 
     function declareTie() {
-        tieBox.innerHTML = 'It\'s a tie!'
+        tieBox.innerHTML = 'It\'s a tie!';
     }
 
     return {
@@ -98,6 +127,8 @@ const gameController = (() => {
         remainingMoves,
         nextPlayer,
         winner,
-        declareTie
+        declareTie,
+        checkWin,
+        paraNextAlert
     }
 })();

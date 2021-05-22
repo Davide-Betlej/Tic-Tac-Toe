@@ -59,19 +59,48 @@ h1 {
 }
 
 .text-container {
-    margin-top: 10%;
+    margin-top: 5%;
     color: #fff;
     text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #0fa,
-    0 0 82px #0fa,
-    0 0 92px #0fa,
-    0 0 102px #0fa,
-    0 0 151px #0fa;
+    0 0 50px #fff;
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: bold;
+}
+
+.turnPara {
+    text-align: center;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: -75px;
+}
+
+.playerName {
+    font-weight: 700;
+}
+
+.restartButton {
+    padding: 20px 20px;
+    display: inline-block;
+    color: #008000;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: 1.5em;
+    background-color: #010a01;
+    border: none;
+}
+
+.restartButton:hover {
+    color: #111;
+    background: #39ff14;
+    box-shadow: 0 0 50px #39ff14;
+}
+
+#buttonSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
